@@ -329,7 +329,7 @@ export default function AddUserPage() {
           </div>
 
           <div className="pt-4">
-            <Button role="submit" id="submit" data-testid="submit" aria-label="submit" type="submit">Submit</Button>
+            <Button id="submit" data-testid="submit" aria-label="submit" type="submit">Submit</Button>
           </div>
         </form>
       </Form>
