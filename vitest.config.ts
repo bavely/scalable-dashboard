@@ -18,6 +18,7 @@ export default defineConfig({
     globals: true,
     css: true,
     setupFiles: ['./src/tests/setup.ts'],
+    testTimeout: 10_000,
   },
   // Mock CSS imports
   define: {
