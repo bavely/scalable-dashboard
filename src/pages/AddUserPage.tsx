@@ -103,7 +103,7 @@ export default function AddUserPage() {
     toast.success("User added successfully, redirecting to users list...");
     setTimeout(() => {
       navigate("/users");
-    }, 2500);
+    }, 1000);
   }, [addUser, form, navigate]);
 
   return (
