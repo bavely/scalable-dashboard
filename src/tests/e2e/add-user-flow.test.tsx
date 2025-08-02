@@ -42,7 +42,7 @@ test('user can add a new entry via form and see it in the user list', async () =
 
   useUsersStore.getState().addUser({
     id: '1',
-    name: 'John Doe',
+    name: 'John',
     username: 'johndoe',
     email: 'john@example.com',
     phone: '+1 555-123-4567',
@@ -56,6 +56,6 @@ test('user can add a new entry via form and see it in the user list', async () =
   vi.advanceTimersByTime(2000)
   vi.useRealTimers()
 
-  expect(await screen.findByText('John Doe')).toBeInTheDocument()
+  expect(await screen.findByText('John')).toBeInTheDocument()
 })
 
