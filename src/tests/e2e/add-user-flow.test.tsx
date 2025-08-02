@@ -17,7 +17,8 @@ beforeEach(() => {
 })
 
 test('user can add a new entry via form and see it in the user list', async () => {
-  const user = userEvent.setup()
+  vi.useFakeTimers()
+  const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime })
 
   render(
     <MemoryRouter initialEntries={['/users']}>
@@ -38,7 +39,7 @@ test('user can add a new entry via form and see it in the user list', async () =
   )
 
   await user.click(screen.getByRole('link', { name: /add user/i }))
-  await screen.findByTestId('username')
+  screen.getByTestId('username')
 
   useUsersStore.getState().addUser({
     id: '1',
@@ -51,7 +52,6 @@ test('user can add a new entry via form and see it in the user list', async () =
     company: { name: 'Acme Corp', catchPhrase: 'Innovate your world', bs: 'empower synergistic solutions' },
   })
 
-  vi.useFakeTimers()
   await user.click(screen.getByTestId('submit'))
   vi.advanceTimersByTime(2000)
   vi.useRealTimers()
