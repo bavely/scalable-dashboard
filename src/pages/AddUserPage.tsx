@@ -15,8 +15,9 @@ import {
 import { Input } from "@/components/ui/input"
 import type { User } from "@/types"
 import { useUsersStore } from '../hooks/useUsersStore';
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 const userSchema = z.object({
   username: z
     .string()
@@ -58,10 +59,6 @@ type UserFormValues = z.infer<typeof userSchema>
 export default function AddUserPage() {
   const { addUser } = useUsersStore();
   const navigate = useNavigate();
-  const [userMsg, setUserMsg] = useState<{
-    msg: string;
-    type: "success" | "error";
-  } | null>(null);
 
   const form = useForm<UserFormValues>({
     resolver: zodResolver(userSchema),
@@ -103,10 +100,7 @@ export default function AddUserPage() {
  
     addUser(newUser);
     form.reset();
-    setUserMsg({
-      msg: "User added successfully, redirecting to users list...",
-      type: "success",
-    });
+    toast.success("User added successfully, redirecting to users list...");
     setTimeout(() => {
       navigate("/");
     }, 2000);
@@ -333,12 +327,6 @@ export default function AddUserPage() {
               />
             </div>
           </div>
-
-          {userMsg && (
-            <div className="pt-4">
-              <p className={`text-sm ${userMsg.type === "success" ? "text-green-500" : "text-red-500"}`}>{userMsg.msg}</p>
-            </div>
-          )}
 
           <div className="pt-4">
             <Button role="submit" id="submit" data-testid="submit" aria-label="submit" type="submit">Submit</Button>

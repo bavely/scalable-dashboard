@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import LoadingSpinner from '../components/Shared/LoadingSpinner';
 import ErrorBoundary from '../components/Shared/ErrorBoundary';
 import Main from '../components/Shared/Main';
+import { Toaster } from "@/components/ui/sonner"
 
 const UserListPage = lazy(() => import('../pages/UserListPage'));
 const AddUserPage = lazy(() => import('../pages/AddUserPage'));
@@ -20,6 +21,7 @@ const AppRoutes: React.FC = () => (
       </Suspense>
     </ErrorBoundary>
     </Main>
+    <Toaster />
   </BrowserRouter>
 );
 
