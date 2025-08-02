@@ -72,6 +72,7 @@ test('user can add a new entry via form and see it in the user list', async () =
   await user.type(screen.getByTestId('bs'), 'empower synergistic solutions')
 
   await user.click(screen.getByTestId('submit'))
+  vi.advanceTimersByTime(2000) // run navigation timeout
 
   expect(await screen.findByText('John', undefined, { timeout: 3000 })).toBeInTheDocument()
 })
