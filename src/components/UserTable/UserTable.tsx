@@ -22,8 +22,6 @@ const UserTable: React.FC<Props> = ({ users }) => {
     setOpen(false);
   };
 
- 
-  console.log(users, 'users in table')
 
   const columns: GridColDef[] = [
     { field: 'name', headerName: 'Name', flex: 1, sortable: true },
