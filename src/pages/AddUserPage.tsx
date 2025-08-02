@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import {  z } from "zod"
 import { v4 as uuidv4 } from 'uuid';
-import { Button } from "@/components/ui/button"
+import { Button } from "../components/ui/button"
 import {
   Form,
   FormControl,
@@ -128,7 +128,7 @@ export default function AddUserPage() {
                 <FormItem>
                   <FormLabel>Username</FormLabel>
                   <FormControl>
-                    <Input placeholder="johndoe" {...field}  className="bg-white"/>
+                    <Input aria-label="username" data-testid="username" placeholder="johndoe" {...field}  className="bg-white"/>
                   </FormControl>
                   <FormDescription>
                     Public display username.
@@ -144,7 +144,7 @@ export default function AddUserPage() {
                 <FormItem>
                   <FormLabel>Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="John Doe" {...field} className="bg-white"/>
+                    <Input aria-label="name" data-testid="name" placeholder="John Doe" {...field} className="bg-white"/>
                   </FormControl>
                   <FormDescription>Full name of the user.</FormDescription>
                   <FormMessage />
@@ -158,7 +158,7 @@ export default function AddUserPage() {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="john@example.com" {...field} className="bg-white"/>
+                    <Input aria-label="email" data-testid="email" placeholder="john@example.com" {...field} className="bg-white"/>
                   </FormControl>
                   <FormDescription>Contact email address.</FormDescription>
                   <FormMessage />
@@ -172,7 +172,7 @@ export default function AddUserPage() {
                 <FormItem>
                   <FormLabel>Phone</FormLabel>
                   <FormControl>
-                    <Input placeholder="+1 555-1234" {...field} className="bg-white"/>
+                    <Input aria-label="phone" data-testid="phone" placeholder="+1 555-123-4567" {...field} className="bg-white"/>
                   </FormControl>
                   <FormDescription>Phone number.</FormDescription>
                   <FormMessage />
@@ -186,7 +186,7 @@ export default function AddUserPage() {
                 <FormItem className="sm:col-span-2">
                   <FormLabel>Website</FormLabel>
                   <FormControl>
-                    <Input placeholder="https://example.com" {...field} className="bg-white"/>
+                    <Input aria-label="website" data-testid="website" placeholder="https://example.com" {...field} className="bg-white"/>
                   </FormControl>
                   <FormDescription>User's website or URL.</FormDescription>
                   <FormMessage />
@@ -206,7 +206,7 @@ export default function AddUserPage() {
                   <FormItem>
                     <FormLabel>Street</FormLabel>
                     <FormControl>
-                      <Input placeholder="123 Main St" {...field} className="bg-white"/>
+                      <Input aria-label="street" data-testid="street" placeholder="123 Main St" {...field} className="bg-white"/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -219,7 +219,7 @@ export default function AddUserPage() {
                   <FormItem>
                     <FormLabel>Suite</FormLabel>
                     <FormControl>
-                      <Input placeholder="Apt. 4B" {...field} className="bg-white"/>
+                      <Input aria-label="suite" data-testid="suite" placeholder="Apt. 4B" {...field} className="bg-white"/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -232,7 +232,7 @@ export default function AddUserPage() {
                   <FormItem>
                     <FormLabel>City</FormLabel>
                     <FormControl>
-                      <Input placeholder="Los Angeles" {...field} className="bg-white"/>
+                      <Input aria-label="city" data-testid="city" placeholder="Los Angeles" {...field} className="bg-white"/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -245,7 +245,7 @@ export default function AddUserPage() {
                   <FormItem>
                     <FormLabel>Zipcode</FormLabel>
                     <FormControl>
-                      <Input placeholder="90001" {...field} className="bg-white"/>
+                      <Input aria-label="zipcode" data-testid="zipcode" placeholder="90001" {...field} className="bg-white"/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -264,7 +264,7 @@ export default function AddUserPage() {
                     <FormItem>
                       <FormLabel>Latitude</FormLabel>
                       <FormControl>
-                        <Input placeholder="34.0522" {...field} className="bg-white"/>
+                        <Input aria-label="latitude" data-testid="latitude" placeholder="34.0522" {...field} className="bg-white"/>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -277,7 +277,7 @@ export default function AddUserPage() {
                     <FormItem>
                       <FormLabel className="mt-2">Longitude</FormLabel>
                       <FormControl>
-                        <Input placeholder="-118.2437" {...field} className="bg-white"/>
+                          <Input aria-label="longitude" data-testid="longitude" placeholder="-118.2437" {...field} className="bg-white"/>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -298,7 +298,7 @@ export default function AddUserPage() {
                   <FormItem>
                     <FormLabel>Company Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="Acme Corp" {...field} className="bg-white"/>
+                      <Input aria-label="company-name" data-testid="company-name" placeholder="Acme Corp" {...field} className="bg-white"/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -311,7 +311,7 @@ export default function AddUserPage() {
                   <FormItem>
                     <FormLabel>Catch Phrase</FormLabel>
                     <FormControl>
-                      <Input placeholder="Innovate your world" {...field} className="bg-white"/>
+                      <Input aria-label="catch-phrase" data-testid="catch-phrase" placeholder="Innovate your world" {...field} className="bg-white"/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -324,7 +324,7 @@ export default function AddUserPage() {
                   <FormItem className="sm:col-span-2">
                     <FormLabel>BS</FormLabel>
                     <FormControl>
-                      <Input placeholder="empower synergistic solutions" {...field} className="bg-white"/>
+                      <Input aria-label="bs" data-testid="bs"  placeholder="empower synergistic solutions" {...field} className="bg-white"/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -340,7 +340,7 @@ export default function AddUserPage() {
           )}
 
           <div className="pt-4">
-            <Button type="submit">Submit</Button>
+            <Button role="submit" id="submit" data-testid="submit" aria-label="submit" type="submit">Submit</Button>
           </div>
         </form>
       </Form>

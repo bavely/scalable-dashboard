@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { User } from '../../types';
 import { DataGrid, type GridColDef } from '@mui/x-data-grid';
+import { Box, Button } from '@mui/material';
+import Modal from '../Shared/Modal';
 
 
 interface Props {
@@ -8,80 +10,54 @@ interface Props {
 }
 
 const UserTable: React.FC<Props> = ({ users }) => {
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
+  const [open, setOpen] = React.useState(false);
 
+  const handleClickOpen = (user: User) => {
+    setOpen(true);
+    setSelectedUser(user);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+ 
   console.log(users, 'users in table')
 
   const columns: GridColDef[] = [
     { field: 'name', headerName: 'Name', flex: 1, sortable: true },
     { field: 'email', headerName: 'Email', flex: 1, sortable: true },
     { field: 'phone', headerName: 'Phone', flex: 1, sortable: true },
-    { field: 'website', headerName: 'Website', flex: 1, sortable: true },
-    { 
-      field: 'city', 
-      headerName: 'City', 
-      valueGetter: (_value, row) => row.address?.city, 
-      flex: 1, 
-      sortable: true 
-    },
-    { 
-      field: 'street', 
-      headerName: 'Street', 
-      valueGetter: (_value, row) => row.address?.street, 
-      flex: 1, 
-      sortable: true 
-    },
-    { 
-      field: 'suite', 
-      headerName: 'Suite', 
-      valueGetter: (_value, row) => row.address?.suite, 
-      flex: 1, 
-      sortable: true 
-    },
-    { 
-      field: 'zipcode', 
-      headerName: 'Zipcode', 
-      valueGetter: (_value, row) => row.address?.zipcode, 
-      flex: 1, 
-      sortable: true 
-    },
-    { 
-      field: 'lat', 
-      headerName: 'Latitude', 
-      valueGetter: (_value, row) => row.address?.geo?.lat, 
-      flex: 1, 
-      sortable: true 
-    },
-    { 
-      field: 'lng', 
-      headerName: 'Longitude', 
-      valueGetter: (_value, row) => row.address?.geo?.lng, 
-      flex: 1, 
-      sortable: true 
-    },
-    { 
-      field: 'company.name', 
-      headerName: 'Company Name', 
-      valueGetter: (_value, row) => row.company?.name, 
-      flex: 1, 
-      sortable: true 
-    },
-   {
-    field: 'company.catchPhrase',
-    headerName: 'Catch Phrase',
-    valueGetter: (_value, row) => row.company?.catchPhrase,
-    flex: 1,
-    sortable: true
-   }
+    { field: 'actions', headerName: 'Actions', flex: 1, sortable: true, renderCell: (params) => (
+        <Button variant="text" aria-label="View Details"  color="secondary" onClick={() => handleClickOpen(params.row)}>
+        View Details
+      </Button>
+    ) },
   ]
 
   return (
-    <div role="grid" className="h-[70vh] mx-auto">
+    <Box role="grid" sx={{
+      display: 'table',
+      flexDirection: 'column',
+      tableLayout:"fixed",
+      height: '70vh',
+      maxHeight: '70vh',
+      width: '100%',
+      maxWidth: '100%',
+      mx: 'auto',
+      overflow: 'hidden',
+      
+    }} >
+  
     <DataGrid
-    className='h-full w-full'
+    className='h-[70vh] max-h-[70vh] w-[100%] max-w-[100%]'
       rows={users}
       columns={columns}
       pageSizeOptions={[5, 10, 20, 50, 100]}
       getRowId={(row) => row.id}
+      onRowClick={(params) => handleClickOpen(params.row)}
+      
       aria-label="User Table"   
       aria-readonly="true"
       aria-colcount={columns.length}
@@ -90,7 +66,8 @@ const UserTable: React.FC<Props> = ({ users }) => {
       aria-colindex={0}
       aria-rowspan={1}
     />
-    </div>
+    <Modal open={open}  handleClose={handleClose} user={selectedUser as User} />
+    </Box>
   );
 };
 

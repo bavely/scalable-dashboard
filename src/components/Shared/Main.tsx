@@ -21,7 +21,7 @@ export default function Main({ children }: Readonly<{ children: React.ReactNode 
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="bg-background sticky top-0 flex shrink-0 items-center gap-2 border-b p-4">
+        <header className="bg-[rgba(255,255,255,0.6)] backdrop-blur-sm sticky top-0 flex shrink-0 items-center gap-2 border-b p-4 z-50">
           <SidebarTrigger className="-ml-1" />
           <Separator
             orientation="vertical"

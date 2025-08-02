@@ -33,7 +33,7 @@ export const useUsersStore = create<UsersState>()(
     },
     addUser: (user) =>
       set((state) => ({ users: [user, ...state.users] })),
-    setSearch: () => {}, // placeholder if needed
+    setSearch: () => {}, 
   }),
   {
     name: 'users-store',
