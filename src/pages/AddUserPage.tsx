@@ -143,7 +143,7 @@ export default function AddUserPage() {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>Name<span className="text-red-500">*</span></FormLabel>
                   <FormControl>
                     <Input aria-label="name" data-testid="name" placeholder="John Doe" {...field} className="bg-white"/>
                   </FormControl>
@@ -157,7 +157,7 @@ export default function AddUserPage() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>Email<span className="text-red-500">*</span></FormLabel>
                   <FormControl>
                     <Input aria-label="email" data-testid="email" placeholder="john@example.com" {...field} className="bg-white"/>
                   </FormControl>
@@ -171,7 +171,7 @@ export default function AddUserPage() {
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Phone</FormLabel>
+                  <FormLabel>Phone<span className="text-red-500">*</span></FormLabel>
                   <FormControl>
                     <Input aria-label="phone" data-testid="phone" placeholder="+1 555-123-4567" {...field} className="bg-white"/>
                   </FormControl>
@@ -185,7 +185,7 @@ export default function AddUserPage() {
               name="website"
               render={({ field }) => (
                 <FormItem className="sm:col-span-2">
-                  <FormLabel>Website</FormLabel>
+                  <FormLabel>Website<span className="text-red-500">*</span></FormLabel>
                   <FormControl>
                     <Input aria-label="website" data-testid="website" placeholder="https://example.com" {...field} className="bg-white"/>
                   </FormControl>
@@ -205,7 +205,7 @@ export default function AddUserPage() {
                 name="address.street"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Street</FormLabel>
+                    <FormLabel>Street<span className="text-red-500">*</span></FormLabel>
                     <FormControl>
                       <Input aria-label="street" data-testid="street" placeholder="123 Main St" {...field} className="bg-white"/>
                     </FormControl>
@@ -218,7 +218,7 @@ export default function AddUserPage() {
                 name="address.suite"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Suite</FormLabel>
+                    <FormLabel>Suite<span className="text-red-500">*</span></FormLabel>
                     <FormControl>
                       <Input aria-label="suite" data-testid="suite" placeholder="Apt. 4B" {...field} className="bg-white"/>
                     </FormControl>
@@ -231,7 +231,7 @@ export default function AddUserPage() {
                 name="address.city"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>City</FormLabel>
+                    <FormLabel>City<span className="text-red-500">*</span></FormLabel>
                     <FormControl>
                       <Input aria-label="city" data-testid="city" placeholder="Los Angeles" {...field} className="bg-white"/>
                     </FormControl>
@@ -244,7 +244,7 @@ export default function AddUserPage() {
                 name="address.zipcode"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Zipcode</FormLabel>
+                    <FormLabel>Zipcode<span className="text-red-500">*</span></FormLabel>
                     <FormControl>
                       <Input aria-label="zipcode" data-testid="zipcode" placeholder="90001" {...field} className="bg-white"/>
                     </FormControl>
@@ -263,7 +263,7 @@ export default function AddUserPage() {
                   name="address.geo.lat"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Latitude</FormLabel>
+                      <FormLabel>Latitude<span className="text-red-500">*</span></FormLabel>
                       <FormControl>
                         <Input aria-label="latitude" data-testid="latitude" placeholder="34.0522" {...field} className="bg-white"/>
                       </FormControl>
@@ -276,7 +276,7 @@ export default function AddUserPage() {
                   name="address.geo.lng"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="mt-2">Longitude</FormLabel>
+                      <FormLabel className="mt-2">Longitude<span className="text-red-500">*</span></FormLabel>
                       <FormControl>
                           <Input aria-label="longitude" data-testid="longitude" placeholder="-118.2437" {...field} className="bg-white"/>
                       </FormControl>
@@ -297,7 +297,7 @@ export default function AddUserPage() {
                 name="company.name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Company Name</FormLabel>
+                    <FormLabel>Company Name<span className="text-red-500">*</span></FormLabel>
                     <FormControl>
                       <Input aria-label="company-name" data-testid="company-name" placeholder="Acme Corp" {...field} className="bg-white"/>
                     </FormControl>
@@ -310,7 +310,7 @@ export default function AddUserPage() {
                 name="company.catchPhrase"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Catch Phrase</FormLabel>
+                    <FormLabel>Catch Phrase<span className="text-red-500">*</span></FormLabel>
                     <FormControl>
                       <Input aria-label="catch-phrase" data-testid="catch-phrase" placeholder="Innovate your world" {...field} className="bg-white"/>
                     </FormControl>
@@ -323,7 +323,7 @@ export default function AddUserPage() {
                 name="company.bs"
                 render={({ field }) => (
                   <FormItem className="sm:col-span-2">
-                    <FormLabel>BS</FormLabel>
+                    <FormLabel>BS<span className="text-red-500">*</span></FormLabel>
                     <FormControl>
                       <Input aria-label="bs" data-testid="bs"  placeholder="empower synergistic solutions" {...field} className="bg-white"/>
                     </FormControl>
