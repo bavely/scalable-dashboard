@@ -3,7 +3,7 @@ import type { User } from '../types';
 
 class APIService {
   private static instance: APIService;
-  private base = 'https://jsonplaceholder.typicode.com';
+  private base = import.meta.env.VITE_API_URL;
 
   private constructor() {}
 

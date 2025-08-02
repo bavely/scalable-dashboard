@@ -98,6 +98,7 @@ export default function AddUserPage() {
       phone: values.phone,
       address: values.address,
       company: values.company,
+      website: values.website,
     }
  
     addUser(newUser);
