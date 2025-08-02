@@ -22,8 +22,6 @@ const UserTable: React.FC<Props> = ({ users }) => {
     setOpen(false);
   };
 
- 
-  console.log(users, 'users in table')
 
   const columns: GridColDef[] = [
     { field: 'name', headerName: 'Name', flex: 1, sortable: true },
@@ -58,13 +56,10 @@ const UserTable: React.FC<Props> = ({ users }) => {
       getRowId={(row) => row.id}
       onRowClick={(params) => handleClickOpen(params.row)}
       
-      aria-label="User Table"   
+      aria-label="User Table"
       aria-readonly="true"
       aria-colcount={columns.length}
       aria-rowcount={users.length}
-      aria-rowindex={0}
-      aria-colindex={0}
-      aria-rowspan={1}
     />
     <Modal open={open}  handleClose={handleClose} user={selectedUser as User} />
     </Box>
