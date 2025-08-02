@@ -101,9 +101,9 @@ export default function AddUserPage() {
     addUser(newUser);
     form.reset();
     toast.success("User added successfully, redirecting to users list...");
-    setTimeout(() => {
+    
       navigate("/users");
-    }, 1000);
+   
   }, [addUser, form, navigate]);
 
   return (
