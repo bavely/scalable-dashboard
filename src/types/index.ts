@@ -3,8 +3,10 @@ export interface Address {
   suite: string;
   city: string;
   zipcode: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [key: string]: any; // allow extras
+  geo: {
+    lat: string;
+    lng: string;
+  };
 }
 
 export interface Company {
