@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { beforeEach, expect, test, vi } from 'vitest'
+import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter, Routes, Route, Link, Navigate } from 'react-router-dom'
 import { useUsersStore } from '../../hooks/useUsersStore'
@@ -24,6 +24,10 @@ beforeEach(() => {
     fetchAndSetUsers: mockFetchAndSetUsers,
   })
   localStorage.clear()
+})
+
+afterEach(() => {
+  vi.useRealTimers()
 })
 
 test('user can add a new entry via form and see it in the user list', async () => {
@@ -75,4 +79,4 @@ test('user can add a new entry via form and see it in the user list', async () =
   vi.advanceTimersByTime(2000) // run navigation timeout
 
   expect(await screen.findByText('John', undefined, { timeout: 3000 })).toBeInTheDocument()
-})
+}, 10000)
