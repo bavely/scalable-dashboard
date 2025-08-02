@@ -9,7 +9,6 @@ interface UsersState {
   error: string | null;
   fetchAndSetUsers: () => Promise<void>;
   addUser: (user: User) => void;
-  setSearch: (term: string) => void; // for derived usage maybe
 }
 
 export const useUsersStore = create<UsersState>()(
@@ -33,7 +32,6 @@ export const useUsersStore = create<UsersState>()(
     },
     addUser: (user) =>
       set((state) => ({ users: [user, ...state.users] })),
-    setSearch: () => {}, 
   }),
   {
     name: 'users-store',
