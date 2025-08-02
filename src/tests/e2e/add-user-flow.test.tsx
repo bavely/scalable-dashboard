@@ -58,9 +58,9 @@ test('user can add a new entry via form and see it in the user list', async () =
   }
 
   await user.click(screen.getByRole('link', { name: /add user/i }))
-  screen.getByTestId('username')
+  const usernameInput = await screen.findByTestId('username')
 
-  await user.type(screen.getByTestId('username'), 'johndoe')
+  await user.type(usernameInput, 'johndoe')
   await user.type(screen.getByTestId('name'), 'John')
   await user.type(screen.getByTestId('email'), 'john@example.com')
   await user.type(screen.getByTestId('phone'), '+1 555-123-4567')
