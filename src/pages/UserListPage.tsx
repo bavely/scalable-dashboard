@@ -36,6 +36,12 @@ const UserListPage: React.FC = () => {
     []
   );
 
+  useEffect(() => {
+    return () => {
+      onSearchChange.cancel();
+    };
+  }, [onSearchChange]);
+
   if (loading) return <LoadingSpinner />;
 
   return (
