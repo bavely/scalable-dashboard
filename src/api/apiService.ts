@@ -19,7 +19,6 @@ class APIService {
       const resp = await axios.get<User[]>(`${this.base}/users`, {
         timeout: 5000,
       });
-      console.log(resp.data);
       return resp.data;
     } catch (e: unknown) {
       if (e instanceof Error) {
