@@ -3,7 +3,8 @@ import type { User } from '../types';
 
 class APIService {
   private static instance: APIService;
-  private base = import.meta.env.VITE_API_URL;
+  private base = import.meta.env.VITE_API_URL || "";
+  
 
   private constructor() {}
 
@@ -16,6 +17,9 @@ class APIService {
 
   async fetchUsers(): Promise<User[]> {
     try {
+      if (!this.base) {
+        throw new Error("API URL is not set");
+      }
       const resp = await axios.get<User[]>(`${this.base}/users`, {
         timeout: 5000,
       });
