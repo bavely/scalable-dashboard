@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import type { User } from '../../types';
 import { DataGrid, type GridColDef } from '@mui/x-data-grid';
 import { Box, Button } from '@mui/material';
@@ -13,28 +13,39 @@ const UserTable: React.FC<Props> = ({ users }) => {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = (user: User) => {
+  const handleClickOpen = useCallback((user: User) => {
     setOpen(true);
     setSelectedUser(user);
-  };
+  }, []);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setOpen(false);
-  };
+  }, []);
 
  
   console.log(users, 'users in table')
 
-  const columns: GridColDef[] = [
+  const columns: GridColDef[] = useMemo(() => [
     { field: 'name', headerName: 'Name', flex: 1, sortable: true },
     { field: 'email', headerName: 'Email', flex: 1, sortable: true },
     { field: 'phone', headerName: 'Phone', flex: 1, sortable: true },
-    { field: 'actions', headerName: 'Actions', flex: 1, sortable: true, renderCell: (params) => (
-        <Button variant="text" aria-label="View Details"  color="secondary" onClick={() => handleClickOpen(params.row)}>
-        View Details
-      </Button>
-    ) },
-  ]
+    {
+      field: 'actions',
+      headerName: 'Actions',
+      flex: 1,
+      sortable: true,
+      renderCell: (params) => (
+        <Button
+          variant="text"
+          aria-label="View Details"
+          color="secondary"
+          onClick={() => handleClickOpen(params.row)}
+        >
+          View Details
+        </Button>
+      ),
+    },
+  ], [handleClickOpen]);
 
   return (
     <Box role="grid" sx={{
