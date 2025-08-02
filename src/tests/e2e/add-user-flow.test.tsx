@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter, Routes, Route, Link, Navigate } from 'react-router-dom'
@@ -82,12 +82,7 @@ test('user can add a new entry via form and see it in the user list', async () =
   await user.click(screen.getByTestId('submit'))
 
   // Wait for navigation to complete and user to appear in the list
-  // Since the AddUserPage has a 5 second delay, we need to wait for that
-  await waitFor(
-    () => {
-      expect(screen.getByText('John')).toBeInTheDocument()
-    },
-    { timeout: 5000 } // Increased timeout to account for the 5 second delay
-  )
-
-}, 10000) // Increased overall test timeout
+  // AddUserPage redirects after a 1 second delay, so allow time for the new user
+  const newUserCell = await screen.findByRole('cell', { name: /john/i }, { timeout: 4000 })
+  expect(newUserCell).toBeInTheDocument()
+}, 10000)
