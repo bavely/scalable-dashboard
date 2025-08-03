@@ -35,10 +35,11 @@ A modular user management dashboard built with React and TypeScript. The project
    ```
 
 ## Testing
-Run the test suite with:
+Run the unit and integration test suite with:
 ```bash
 npm test
 ```
+End-to-end tests have been removed.
 
 ## Environment Variables
 Vite exposes environment variables prefixed with `VITE_`. Create a `.env` file in the project root to define them as needed:
