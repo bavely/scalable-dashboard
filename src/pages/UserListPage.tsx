@@ -52,7 +52,7 @@ const UserListPage: React.FC = () => {
             <Input
               type="search"
               role="search"
-              aria-label="Search users by name or email"
+aria-label="Search users by name or email"
               placeholder="Search..."
               className="bg-background pr-8"
               onChange={(e: { target: { value: string } }) =>
