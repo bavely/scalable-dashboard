@@ -83,6 +83,6 @@ test('user can add a new entry via form and see it in the user list', async () =
 
   // Wait for navigation to complete and user to appear in the list
   // AddUserPage redirects after a 1 second delay, so allow time for the new user
-  const newUserCell = await screen.findByRole('cell', { name: /john/i }, { timeout: 4000 })
+  const newUserCell = await screen.findByRole('gridcell', { name: /john/i }, { timeout: 4000 })
   expect(newUserCell).toBeInTheDocument()
 }, 10000)
