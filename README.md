@@ -48,3 +48,5 @@ VITE_API_URL=https://example.com/api
 ```
 The project does not require any environment variables by default.
 
+## Live Hosted Version (Hosted on digital ocean server)
+https://scalable-dashboard.pavli-tawfik.com/
