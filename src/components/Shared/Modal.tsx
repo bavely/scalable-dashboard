@@ -88,7 +88,7 @@ const Modal: React.FC<ModalProps> = ({ open, handleClose, user }) => {
                   flexShrink: 0,
                 }}
               >
-                <User size={24} />
+                <User className='text-black' size={24} />
               </Box>
               <Box>
                 <Typography variant="subtitle1" fontWeight={600}>

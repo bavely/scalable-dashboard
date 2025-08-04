@@ -87,5 +87,7 @@ it('shows validation errors for empty required fields', async () => {
   fireEvent.click(screen.getByTestId('submit'));
 
   // Check for validation error messages
-  expect(await screen.findByText(/website is required/i)).toBeInTheDocument();
+  expect(await screen.findByText(/Website must be a valid URL. \(e\.g\. https:\/\/example\.com\)/i)).toBeInTheDocument();
+  expect(await screen.findByText(/Username must be at least 2 characters./i)).toBeInTheDocument();
+
 });
