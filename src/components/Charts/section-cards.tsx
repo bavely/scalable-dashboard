@@ -12,10 +12,10 @@ import {
 import type { User } from "@/types/index"
 
 export function SectionCards({ users }: { users: User[] }) {
-  const [usersCount, setUsersCount] = useState(users.length)
+  const [usersCount, setUsersCount] = useState(users.length || 0)
 
   useEffect(() => {
-    setUsersCount(users.length)
+    setUsersCount(users.length || 0)
   }, [users])
 
   return (
