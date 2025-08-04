@@ -17,6 +17,7 @@ export default function Main({ children }: Readonly<{ children: React.ReactNode 
 
     const location = useLocation()
     const isAddUserPage = location.pathname === '/add'
+    const isDashBoard = location.pathname === '/'
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -30,7 +31,7 @@ export default function Main({ children }: Readonly<{ children: React.ReactNode 
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbPage className="text-xl font-bold">{isAddUserPage ? 'Add User' : 'User List'}</BreadcrumbPage>
+                <BreadcrumbPage className="text-xl font-bold">{isAddUserPage ? 'Add User' : isDashBoard ? 'Dashboard' : 'User List'}</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>

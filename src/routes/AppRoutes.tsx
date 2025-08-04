@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/sonner"
 
 const UserListPage = lazy(() => import('../pages/UserListPage'));
 const AddUserPage = lazy(() => import('../pages/AddUserPage'));
+const DashBoard = lazy(() => import('../pages/DashBoard'));
 
 const AppRoutes: React.FC = () => (
   <BrowserRouter>
@@ -14,9 +15,10 @@ const AppRoutes: React.FC = () => (
     <ErrorBoundary>
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
+          <Route path="/" element={<DashBoard />} />
           <Route path="/users" element={<UserListPage />} />
           <Route path="/add" element={<AddUserPage />} />
-          <Route path="*" element={<Navigate to="/users" replace />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>
     </ErrorBoundary>
