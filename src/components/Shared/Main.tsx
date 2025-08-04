@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/components/app-sidebar"
+import { AppSidebar } from "@/components/Shared/app-sidebar"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -12,6 +12,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
 import { useLocation } from "react-router-dom"
+import { ModeToggle } from "./mode-toggle"
 
 export default function Main({ children }: Readonly<{ children: React.ReactNode }>) {
 
@@ -22,7 +23,7 @@ export default function Main({ children }: Readonly<{ children: React.ReactNode 
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="bg-[rgba(255,255,255,0.6)] backdrop-blur-sm sticky top-0 flex shrink-0 items-center gap-2 border-b p-4 z-50">
+        <header className="bg-background-secondary backdrop-blur-sm sticky top-0 flex shrink-0 items-center gap-2 border-b p-4 z-50">
           <SidebarTrigger className="-ml-1" />
           <Separator
             orientation="vertical"
@@ -35,6 +36,9 @@ export default function Main({ children }: Readonly<{ children: React.ReactNode 
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
+          <div className="flex-1 flex justify-end">
+          <ModeToggle  />
+          </div>
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4">
           {children}

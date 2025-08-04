@@ -1,9 +1,10 @@
+/* eslint-disable no-console */
 import React, { useState, useMemo, useCallback } from 'react';
 import type { User } from '../../types';
 import { DataGrid, type GridColDef } from '@mui/x-data-grid';
 import { Box, Button } from '@mui/material';
 import Modal from '../Shared/Modal';
-
+import { useTheme } from "@/components/Shared/theme-provider"
 
 interface Props {
   users: User[];
@@ -12,7 +13,10 @@ interface Props {
 const UserTable: React.FC<Props> = ({ users }) => {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [open, setOpen] = React.useState(false);
+  const theme = useTheme();
+console.log(theme)
 
+        
   const handleClickOpen = useCallback((user: User) => {
     setOpen(true);
     setSelectedUser(user);
@@ -46,7 +50,9 @@ const UserTable: React.FC<Props> = ({ users }) => {
   ], [handleClickOpen]);
 
   return (
-    <Box role="grid" sx={{
+    <Box role="grid" 
+    
+    sx={{
       display: 'table',
       flexDirection: 'column',
       tableLayout:"fixed",
@@ -56,11 +62,72 @@ const UserTable: React.FC<Props> = ({ users }) => {
       maxWidth: '100%',
       mx: 'auto',
       overflow: 'hidden',
+      backgroundColor: "transparent",
+
       
     }} >
-  
+
     <DataGrid
-    className='h-[70vh] max-h-[70vh] w-[100%] max-w-[100%]'
+    // className='h-[80vh] max-h-[80vh] w-[100%] max-w-[100%] bg-background'
+
+    sx={{
+      backgroundColor: 'transparent', 
+      color: theme.theme === 'dark' ? 'white' : 'black',
+      '& .MuiDataGrid-root': {
+        backgroundColor: 'transparent',
+          color: theme.theme === 'dark' ? 'white' : 'black',
+          '& .MuiDataGrid-cell': {
+            color: theme.theme === 'dark' ? 'white' : 'black',
+          },
+          '& .MuiDataGrid-columnHeader': {
+            color: theme.theme === 'dark' ? 'white' : 'black',
+          },
+          '& .MuiDataGrid-columnHeaderTitle': {
+            color: theme.theme === 'dark' ? 'white' : 'black',
+          },
+          '& .MuiDataGrid-columnHeaderTitleContainer': {
+            color: theme.theme === 'dark' ? 'white' : 'black',
+          },
+          },
+      '& .MuiDataGrid-mainContent': {
+        backgroundColor: 'transparent',
+        color: theme.theme === 'dark' ? 'white' : 'black',
+      },
+      '& .MuiDataGrid-main': {
+        backgroundColor: 'transparent',
+        color: theme.theme === 'dark' ? 'white' : 'black',
+      },
+      '& .MuiDataGrid-virtualScroller': {
+        backgroundColor: 'transparent',
+        color: theme.theme === 'dark' ? 'white' : 'black',
+      },
+      '& .MuiDataGrid-cell': {
+        backgroundColor: 'transparent',
+        color: theme.theme === 'dark' ? 'white' : 'black',
+      },
+      '& .MuiDataGrid-columnHeader': {
+        backgroundColor: 'transparent',
+      },
+      '& .MuiDataGrid-columnHeaderTitle': {
+        backgroundColor: 'transparent',
+        color: theme.theme === 'dark' ? 'white' : 'black',
+      },
+      '& .MuiDataGrid-columnHeaderTitleContainer': {
+        backgroundColor: 'transparent',
+        color: theme.theme === 'dark' ? 'white' : 'black',
+      },
+      '& .MuiDataGrid-topContainer': {
+        backgroundColor: 'transparent',
+        color: theme.theme === 'dark' ? 'white' : 'black',
+      },
+      '& .MuiDataGrid-footerContainer': {
+        backgroundColor: 'transparent',
+        color: theme.theme === 'dark' ? 'white' : 'black',
+      },
+     
+     
+    }}
+  
       rows={users}
       columns={columns}
       pageSizeOptions={[5, 10, 20, 50, 100]}

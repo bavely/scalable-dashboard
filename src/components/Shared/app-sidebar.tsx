@@ -1,7 +1,7 @@
 import * as React from "react"
 import {  BarChart } from "lucide-react"
 
-import { NavMain } from "@/components/nav-main"
+import { NavMain } from "@/components/Shared/nav-main"
 import {
   Sidebar,
   SidebarContent,
