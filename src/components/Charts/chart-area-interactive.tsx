@@ -27,6 +27,7 @@ import {
   ToggleGroup,
   ToggleGroupItem,
 } from "@/components/ui/toggle-group"
+import type { User } from "@/types/index"
 
 export const description = "An interactive area chart"
 
@@ -138,10 +139,10 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function ChartAreaInteractive() {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function ChartAreaInteractive({ users }: { users: User[] }) {
   const isMobile = useIsMobile()
   const [timeRange, setTimeRange] = React.useState("90d")
-
   React.useEffect(() => {
     if (isMobile) {
       setTimeRange("7d")
