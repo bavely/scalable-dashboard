@@ -32,16 +32,21 @@ const UserTable: React.FC<Props> = ({ users }) => {
       field: 'actions',
       headerName: 'Actions',
       flex: 1,
-      sortable: true,
+      sortable: false,
       renderCell: (params) => (
-        <Button
-          variant="text"
-          aria-label="View Details"
-          color="secondary"
-          onClick={() => handleClickOpen(params.row)}
-        >
-          View Details
-        </Button>
+        <>{
+          params.row.id && (
+            <Button
+              variant="text"
+              aria-label="View Details"
+              color="secondary"
+              onClick={() => handleClickOpen(params.row)}
+            >
+              View Details
+            </Button>
+          )
+        }</>
+     
       ),
     },
   ], [handleClickOpen]);

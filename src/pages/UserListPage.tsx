@@ -48,7 +48,7 @@ const UserListPage: React.FC = () => {
     <div className="bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min p-4">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
         <div className="flex gap-2 w-full">
-          <div className="relative w-[30%]">
+          <div className="relative w-full sm:w-[30%]">
             <Input
               type="search"
               role="search"

@@ -138,10 +138,10 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function ChartAreaInteractive() {
   const isMobile = useIsMobile()
   const [timeRange, setTimeRange] = React.useState("90d")
-
   React.useEffect(() => {
     if (isMobile) {
       setTimeRange("7d")
@@ -165,7 +165,7 @@ export function ChartAreaInteractive() {
   return (
     <Card className="@container/card">
       <CardHeader>
-        <CardTitle>Total Visitors</CardTitle>
+        <CardTitle>Total Visitors </CardTitle>
         <CardDescription>
           <span className="hidden @[540px]/card:block">
             Total for the last 3 months
