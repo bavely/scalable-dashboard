@@ -122,7 +122,7 @@ export default function AddUserPage() {
               name="username"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Username</FormLabel>
+                  <FormLabel>Username<span className="text-red-500">*</span></FormLabel>
                   <FormControl>
                     <Input aria-label="username" data-testid="username" placeholder="johndoe" {...field}  className="bg-white"/>
                   </FormControl>

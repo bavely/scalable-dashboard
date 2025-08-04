@@ -15,4 +15,9 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  preview: {
+    port: 4173,
+    host: '0.0.0.0',
+    allowedHosts: ['localhost', '127.0.0.1', '0.0.0.0', 'scalable-dashboard.pavli-tawfik.com'],
+  },
 })
