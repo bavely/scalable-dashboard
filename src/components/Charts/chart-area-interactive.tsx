@@ -27,7 +27,6 @@ import {
   ToggleGroup,
   ToggleGroupItem,
 } from "@/components/ui/toggle-group"
-import type { User } from "@/types/index"
 
 export const description = "An interactive area chart"
 
@@ -140,7 +139,7 @@ const chartConfig = {
 } satisfies ChartConfig
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function ChartAreaInteractive({ users }: { users: User[] }) {
+export function ChartAreaInteractive() {
   const isMobile = useIsMobile()
   const [timeRange, setTimeRange] = React.useState("90d")
   React.useEffect(() => {
@@ -166,7 +165,7 @@ export function ChartAreaInteractive({ users }: { users: User[] }) {
   return (
     <Card className="@container/card">
       <CardHeader>
-        <CardTitle>Total Visitors</CardTitle>
+        <CardTitle>Total Visitors </CardTitle>
         <CardDescription>
           <span className="hidden @[540px]/card:block">
             Total for the last 3 months
